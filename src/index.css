@@ -1,13 +1,154 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --header-height: 3rem;
+
+  /* COLORS */
+  --title-color: #0B0A0A;
+  --text-color: #403A3A;
+  --text-color-light: #707070;
+  --container-color: #FAFAFA;
+  --container-color-alt: #F0EFEF;
+  --body-color: #F1F1F1;
+
+  /* FONT AND TYPOGRAPHY */
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .875rem;
+  --smaller-font-size: .813rem;
+
+  /* FONT WEIGHT */
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /* MARGINS */
+  --mb-1: .5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+
+  /* Z INDEX */
+  --z-tooltip: 10;
+  --z-fixed: 100;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  body {
+    @apply m-0 p-0 font-primary bg-[var(--body-color)] text-[var(--text-color)] leading-8;
+  }
+
+  h1, h2, h3, ul, p, span {
+    @apply m-0 p-0 leading-none;
+  }
+
+  h1, h2, h3 {
+    @apply text-[var(--title-color)];
+  }
+
+  h1, .h1 {
+    @apply text-[32px] lg:text-[44px] xl:text-[60px] font-bold mb-4;
+  }
+
+  h2, .h2 {
+    @apply text-[28px] lg:text-[40px] xl:text-[54px] font-semibold mb-4;
+  }
+
+  h3, .h3 {
+    @apply text-[22px] lg:text-[24px] xl:text-[40px] font-semibold mb-3;
+  }
+
+  h4 {
+    @apply text-[18px] lg:text-[20px] xl:text-[24px] font-medium mb-3;
+  }
+
+  h5 {
+    @apply text-[16px] lg:text-[18px] xl:text-[22px] font-medium mb-3;
+  }
+}
+
+@layer components {
+  .section {
+    @apply py-8 lg:pt-20 lg:pb-20 lg:h-screen flex items-center;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r text-transparent bg-clip-text from-[#42A6E3] to-[#FF56F6] font-bold font-primary hover:from-[#FF56F6] hover:to-[#42A6E3];
+  }
+
+  .text__icon {
+    @apply flex gap-x-2 justify-center items-center;
+  }
+
+  .gradient,
+  .active {
+    background: linear-gradient(
+      92.23deg,
+      #406aff 21.43%,
+      #3bace2 50.63%,
+      #b936ee 100%,
+      #ff56f6 117.04%
+    );
+  }
+
+  .active {
+    color: #fff;
+    padding: 1rem;
+    border-radius: 100%;
+  }
+
+  .btn {
+    @apply rounded-md text-white font-medium shadow-[0_4px_107px_rgba(255,86,246,0.5)];
+    background: linear-gradient(
+      92.23deg,
+      #ff56f6 0%,
+      #406aff 100%
+    );
+  }
+
+  .btn:hover {
+    @apply text-white/75;
+    background: linear-gradient(
+      92.23deg,
+      #406aff 0%,
+      #ff56f6 100%
+    );
+  }
+
+  .btn-sm {
+    @apply px-6 py-2 text-sm;
+  }
+
+  .btn-lg {
+    @apply px-8 py-4 text-lg;
+  }
+
+  .btn-link {
+    @apply text-base;
+  }
+
+  .underline-custom {
+    @apply w-full h-[4px] bg-gray-300 rounded-[3px] absolute top-[30px] left-0 overflow-hidden;
+  }
+
+  .underline-custom span {
+    @apply w-[15px] h-full bg-black rounded-[3px] absolute top-0 left-0 animate-moving;
+  }
+}
+
+@layer utilities {
+  .animate-moving {
+    animation: moving 2s linear infinite;
+  }
+
+  @keyframes moving {
+    0% {
+      left: -25px;
+    }
+    100% {
+      left: 100%;
+    }
+  }
 }
