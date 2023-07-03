@@ -79,7 +79,6 @@ const SideBar: FC<SideBarProps> = () => {
           activeClass="active"
           smooth={true}
           spy={true}
-          offset={5}
           className={
             'cursor-pointer w-[50px] h-[50px] flex flex-col items-center justify-center'
           }>

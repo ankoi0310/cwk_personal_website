@@ -9,7 +9,7 @@ const cx = classNames.bind(styles)
 interface ContactProps {}
 
 const Contact: FC<ContactProps> = () => (
-  <section className={cx('section__contact')} id={'contact'}>
+  <section className={'py-16 lg:section'} id={'contact'}>
     <div className="container mx-auto">
       <div className={'flex flex-col lg:flex-row'}>
         <motion.div
@@ -34,7 +34,7 @@ const Contact: FC<ContactProps> = () => (
           whileInView={'show'}
           viewport={{ once: false, amount: 0.3 }}
           className={
-            'flex-1 border-4 rounded-2xl flex flex-col gap-y-6 p-6 pt-2 items-start bg-[var(--container-color)]'
+            'flex-1 border-4 rounded-2xl flex flex-col gap-y-6 p-6 items-start bg-[var(--container-color)]'
           }>
           <input
             className={cx('form-control')}
@@ -47,9 +47,9 @@ const Contact: FC<ContactProps> = () => (
             placeholder={'Your email'}
           />
           <textarea
-            className={cx('form-control', 'pb-12 resize-none mb-4')}
+            className={cx('form-control', 'py-12 resize-none mb-12')}
             placeholder={'Your message'}></textarea>
-          <button className={'btn btn-sm'}>Send message</button>
+          <button className={'btn btn-md'}>Send message</button>
         </motion.form>
       </div>
     </div>

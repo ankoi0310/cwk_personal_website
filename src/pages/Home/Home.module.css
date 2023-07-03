@@ -2,10 +2,6 @@
   @apply min-h-[85vh] lg:min-h-[78vh] flex items-center;
 }
 
-.section__contact {
-  @apply min-h-[75vh] lg:min-h-[60vh] flex items-center;
-}
-
 .form-control {
   @apply bg-transparent border-b-2 py-3 outline-none w-full placeholder-shown:text-[var(--text-color)] focus:border-accent transition-all;
 }
